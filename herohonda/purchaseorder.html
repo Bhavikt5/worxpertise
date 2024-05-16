@@ -1,0 +1,1231 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+
+    <!-- fontawesome -->
+    <script
+      src="https://kit.fontawesome.com/0c4a005ebc.js"
+      crossorigin="anonymous"
+    ></script>
+
+    <!-- Bootstrap CSS -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC"
+      crossorigin="anonymous"
+    />
+
+    <!-- Bootstarp -->
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+      crossorigin="anonymous"
+    ></script>
+    <link rel="stylesheet" href="../nstatic/css/variable.css" />
+    <link rel="stylesheet" href="../nstatic/css/style.css" />
+    <link rel="stylesheet" href="../nstatic/css/purchaseorder.css" />
+
+    <!-- Jquery -->
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.1/jquery.min.js"
+      integrity="sha512-aVKKRRi/Q/YV+4mjoKBsE4x3H+BkegoM/em46NNlCqNTmUYADjBbeNefNxYV7giUp0VxICtqdrbqU7iVaeZNXA=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    ></script>
+
+    <!-- Date picker  -->
+    <script
+      type="text/javascript"
+      src="https://cdn.jsdelivr.net/jquery/latest/jquery.min.js"
+    ></script>
+    <script
+      type="text/javascript"
+      src="https://cdn.jsdelivr.net/momentjs/latest/moment.min.js"
+    ></script>
+    <script
+      type="text/javascript"
+      src="https://cdn.jsdelivr.net/npm/daterangepicker/daterangepicker.min.js"
+    ></script>
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="https://cdn.jsdelivr.net/npm/daterangepicker/daterangepicker.css"
+    />
+
+    <!-- Data table -->
+    <link
+      rel="stylesheet"
+      href="https://cdn.datatables.net/2.0.7/css/dataTables.dataTables.min.css"
+    />
+
+    <script src="https://cdn.datatables.net/2.0.7/js/dataTables.min.js"></script>
+  </head>
+  <body>
+    <section class="mainSection">
+      <header id="header"></header>
+      <div class="mainContent">
+        <div id="sidebar"></div>
+        <div id="purchaseOrder">
+          <div class="headingDiv">
+            <div class="d-flex align-items-center">
+              <h2 class="headingh2">Purchase Order (PO)</h2>
+              <div class="divider"></div>
+              <div class="avlBalance">
+                <p>Available balance</p>
+                <p>₹ 45,000.00</p>
+              </div>
+            </div>
+            <button>Add new PO</button>
+          </div>
+
+          <div class="filter d-flex gap-3">
+            <div class="filterBox">
+              <h5>PO Status</h5>
+              <div class="dropdown1 dropdown">
+                <div class="select select1">
+                  <span class="selected selected1">
+                    <div class="d-flex gap-2">
+                      <div
+                        class="color"
+                        style="width: 5px; background-color: #9747ff"
+                      ></div>
+                      Pending
+                    </div></span
+                  >
+                  <img
+                    src="../assets/chevron-down.svg"
+                    alt="chevron"
+                    class="caret caret1"
+                  />
+                </div>
+                <ul class="menu menu1">
+                  <li>
+                    <div class="d-flex gap-2">
+                      <div style="width: 5px; background-color: #9747ff"></div>
+                      Pending
+                    </div>
+                  </li>
+                  <li>
+                    <div class="d-flex gap-2">
+                      <div style="width: 5px; background-color: #ff6868"></div>
+                      Rejected
+                    </div>
+                  </li>
+                  <li>
+                    <div class="d-flex gap-2">
+                      <div style="width: 5px; background-color: #93e496"></div>
+                      Approved
+                    </div>
+                  </li>
+                  <li>
+                    <div class="d-flex gap-2">
+                      <div style="width: 5px; background-color: #c4c4c4"></div>
+                      Closed
+                    </div>
+                  </li>
+                  <li>
+                    <div class="d-flex gap-2">
+                      <div style="width: 5px; background-color: #909090"></div>
+                      Force Closed
+                    </div>
+                  </li>
+                </ul>
+              </div>
+            </div>
+            <div class="filterBox">
+              <h5>PO Type</h5>
+              <div class="dropdown dropdown2">
+                <div class="select select2">
+                  <span class="selected selected2"> Domestic & Import </span>
+                  <img
+                    src="../assets/chevron-down.svg"
+                    alt="chevron"
+                    class="caret caret2"
+                  />
+                </div>
+                <ul class="menu menu2">
+                  <li>All</li>
+                  <li>Domestic</li>
+                  <li>Import</li>
+                </ul>
+              </div>
+            </div>
+            <div class="filterBox">
+              <h5>Date Range</h5>
+              <div id="reportrange" class="select">
+                <span></span>
+                <i class="fa fa-calendar"></i>
+              </div>
+            </div>
+            <div class="filterBox">
+              <h5>Vendor</h5>
+              <div class="dropdown">
+                <div class="select">
+                  <span class="selected"> All Vendors </span>
+                  <img
+                    src="../assets/chevron-down.svg"
+                    alt="chevron"
+                    class="caret"
+                  />
+                </div>
+              </div>
+            </div>
+            <div class="filterBox">
+              <h5>Item</h5>
+              <div class="dropdown dropdown3">
+                <div class="select select3">
+                  <span class="selected selected3"> All Items </span>
+                  <img
+                    src="../assets/chevron-down.svg"
+                    alt="chevron"
+                    class="caret caret3"
+                  />
+                </div>
+                <ul class="menu menu3">
+                  <li>All</li>
+                  <li>Domestic</li>
+                  <li>Import</li>
+                </ul>
+              </div>
+            </div>
+            <div class="filterBtnDiv">
+              <button class="filterBtn">Apply</button>
+            </div>
+          </div>
+
+          <table id="example" class="display" style="width: 100%">
+            <thead>
+              <tr>
+                <th>
+                  <input type="checkbox" />
+                </th>
+                <th>Indent No.</th>
+                <th>PO No.</th>
+                <th>PO Date</th>
+                <th>Type</th>
+                <th>Item</th>
+                <th>Vendor</th>
+                <th>COM No.</th>
+                <th>MR No.</th>
+                <th>Actions</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>
+                  <span
+                    style="
+                      width: 3px;
+                      background-color: #9747ff;
+                      height: 100%;
+                      position: absolute;
+                      top: 0;
+                      left: 0;
+                    "
+                  ></span>
+                  <input type="checkbox" />
+                </td>
+                <td>
+                  839494 <br />
+                  <div class="indentDate commonPara">23 Sep’24</div>
+                </td>
+                <td>
+                  389304A1
+                  <div class="itemList commonPara">Prev. POs</div>
+                </td>
+                <td>24 Sep'24</td>
+                <td>Domestic</td>
+                <td>
+                  Cricket Bats
+                  <div class="itemList commonPara">+ 4 more items</div>
+                </td>
+                <td>Madras Rubber Factory</td>
+                <td>4893944</td>
+                <td>3940-3292</td>
+                <td>
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="24"
+                    height="24"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                  >
+                    <rect width="24" height="24" rx="12" fill="white" />
+                    <path
+                      fill-rule="evenodd"
+                      clip-rule="evenodd"
+                      d="M18.6953 7.2928C18.8828 7.48033 18.9881 7.73465 18.9881 7.99983C18.9881 8.265 18.8828 8.51932 18.6953 8.70686L10.695 16.7072C10.5074 16.8947 10.2531 17 9.98792 17C9.72275 17 9.46843 16.8947 9.28089 16.7072L5.28072 12.707C5.09856 12.5184 4.99776 12.2658 5.00004 12.0036C5.00232 11.7414 5.10749 11.4906 5.29291 11.3052C5.47832 11.1197 5.72914 11.0146 5.99135 11.0123C6.25356 11.01 6.50617 11.1108 6.69478 11.293L9.98792 14.5861L17.2812 7.2928C17.4688 7.10532 17.7231 7 17.9883 7C18.2534 7 18.5078 7.10532 18.6953 7.2928Z"
+                      fill="#69AC6C"
+                    />
+                  </svg>
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="24"
+                    height="24"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    style="margin-right: 20px"
+                  >
+                    <rect width="24" height="24" rx="12" fill="white" />
+                    <path
+                      fill-rule="evenodd"
+                      clip-rule="evenodd"
+                      d="M7.24374 7.25441C7.39986 7.09818 7.61157 7.01042 7.83232 7.01042C8.05307 7.01042 8.26478 7.09818 8.42089 7.25441L11.9948 10.8319L15.5687 7.25441C15.6455 7.17482 15.7374 7.11133 15.8389 7.06766C15.9405 7.02398 16.0497 7.00099 16.1603 7.00003C16.2708 6.99907 16.3804 7.02015 16.4827 7.06206C16.5851 7.10396 16.678 7.16583 16.7562 7.24408C16.8343 7.32232 16.8961 7.41536 16.938 7.51778C16.9799 7.62019 17.0009 7.72993 17 7.84057C16.999 7.95122 16.976 8.06057 16.9324 8.16224C16.8888 8.26391 16.8254 8.35587 16.7458 8.43274L13.1719 12.0102L16.7458 15.5877C16.8975 15.7449 16.9814 15.9554 16.9795 16.1739C16.9776 16.3924 16.8901 16.6014 16.7357 16.7559C16.5814 16.9104 16.3726 16.9981 16.1543 17C15.936 17.0019 15.7257 16.9179 15.5687 16.7661L11.9948 13.1886L8.42089 16.7661C8.26388 16.9179 8.05359 17.0019 7.83531 17C7.61704 16.9981 7.40824 16.9104 7.25388 16.7559C7.09953 16.6014 7.01198 16.3924 7.01008 16.1739C7.00819 15.9554 7.0921 15.7449 7.24374 15.5877L10.8176 12.0102L7.24374 8.43274C7.08767 8.27647 7 8.06454 7 7.84357C7 7.6226 7.08767 7.41068 7.24374 7.25441Z"
+                      fill="#E41D1D"
+                    />
+                  </svg>
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="24"
+                    height="24"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                  >
+                    <rect width="24" height="24" rx="12" fill="white" />
+                    <path
+                      d="M12 8C11.4696 8 10.9609 7.78929 10.5858 7.41421C10.2107 7.03914 10 6.53043 10 6C10 5.46957 10.2107 4.96086 10.5858 4.58579C10.9609 4.21071 11.4696 4 12 4C12.5304 4 13.0391 4.21071 13.4142 4.58579C13.7893 4.96086 14 5.46957 14 6C14 6.53043 13.7893 7.03914 13.4142 7.41421C13.0391 7.78929 12.5304 8 12 8ZM12 14C11.4696 14 10.9609 13.7893 10.5858 13.4142C10.2107 13.0391 10 12.5304 10 12C10 11.4696 10.2107 10.9609 10.5858 10.5858C10.9609 10.2107 11.4696 10 12 10C12.5304 10 13.0391 10.2107 13.4142 10.5858C13.7893 10.9609 14 11.4696 14 12C14 12.5304 13.7893 13.0391 13.4142 13.4142C13.0391 13.7893 12.5304 14 12 14ZM12 20C11.4696 20 10.9609 19.7893 10.5858 19.4142C10.2107 19.0391 10 18.5304 10 18C10 17.4696 10.2107 16.9609 10.5858 16.5858C10.9609 16.2107 11.4696 16 12 16C12.5304 16 13.0391 16.2107 13.4142 16.5858C13.7893 16.9609 14 17.4696 14 18C14 18.5304 13.7893 19.0391 13.4142 19.4142C13.0391 19.7893 12.5304 20 12 20Z"
+                      fill="#B4B4B4"
+                    />
+                  </svg>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <span
+                    style="
+                      width: 3px;
+                      background-color: #9747ff;
+                      height: 100%;
+                      position: absolute;
+                      top: 0;
+                      left: 0;
+                    "
+                  ></span>
+                  <input type="checkbox" />
+                </td>
+                <td>
+                  839494 <br />
+                  <div class="indentDate commonPara">23 Sep’24</div>
+                </td>
+                <td>
+                  389304A1
+                  <div class="itemList commonPara">Prev. POs</div>
+                </td>
+                <td>24 Sep'24</td>
+                <td>Domestic</td>
+                <td>
+                  Cricket Bats
+                  <div class="itemList commonPara">+ 4 more items</div>
+                </td>
+                <td>Madras Rubber Factory</td>
+                <td>4893944</td>
+                <td>3940-3292</td>
+                <td>
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="24"
+                    height="24"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                  >
+                    <rect width="24" height="24" rx="12" fill="white" />
+                    <path
+                      fill-rule="evenodd"
+                      clip-rule="evenodd"
+                      d="M18.6953 7.2928C18.8828 7.48033 18.9881 7.73465 18.9881 7.99983C18.9881 8.265 18.8828 8.51932 18.6953 8.70686L10.695 16.7072C10.5074 16.8947 10.2531 17 9.98792 17C9.72275 17 9.46843 16.8947 9.28089 16.7072L5.28072 12.707C5.09856 12.5184 4.99776 12.2658 5.00004 12.0036C5.00232 11.7414 5.10749 11.4906 5.29291 11.3052C5.47832 11.1197 5.72914 11.0146 5.99135 11.0123C6.25356 11.01 6.50617 11.1108 6.69478 11.293L9.98792 14.5861L17.2812 7.2928C17.4688 7.10532 17.7231 7 17.9883 7C18.2534 7 18.5078 7.10532 18.6953 7.2928Z"
+                      fill="#69AC6C"
+                    />
+                  </svg>
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="24"
+                    height="24"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    style="margin-right: 20px"
+                  >
+                    <rect width="24" height="24" rx="12" fill="white" />
+                    <path
+                      fill-rule="evenodd"
+                      clip-rule="evenodd"
+                      d="M7.24374 7.25441C7.39986 7.09818 7.61157 7.01042 7.83232 7.01042C8.05307 7.01042 8.26478 7.09818 8.42089 7.25441L11.9948 10.8319L15.5687 7.25441C15.6455 7.17482 15.7374 7.11133 15.8389 7.06766C15.9405 7.02398 16.0497 7.00099 16.1603 7.00003C16.2708 6.99907 16.3804 7.02015 16.4827 7.06206C16.5851 7.10396 16.678 7.16583 16.7562 7.24408C16.8343 7.32232 16.8961 7.41536 16.938 7.51778C16.9799 7.62019 17.0009 7.72993 17 7.84057C16.999 7.95122 16.976 8.06057 16.9324 8.16224C16.8888 8.26391 16.8254 8.35587 16.7458 8.43274L13.1719 12.0102L16.7458 15.5877C16.8975 15.7449 16.9814 15.9554 16.9795 16.1739C16.9776 16.3924 16.8901 16.6014 16.7357 16.7559C16.5814 16.9104 16.3726 16.9981 16.1543 17C15.936 17.0019 15.7257 16.9179 15.5687 16.7661L11.9948 13.1886L8.42089 16.7661C8.26388 16.9179 8.05359 17.0019 7.83531 17C7.61704 16.9981 7.40824 16.9104 7.25388 16.7559C7.09953 16.6014 7.01198 16.3924 7.01008 16.1739C7.00819 15.9554 7.0921 15.7449 7.24374 15.5877L10.8176 12.0102L7.24374 8.43274C7.08767 8.27647 7 8.06454 7 7.84357C7 7.6226 7.08767 7.41068 7.24374 7.25441Z"
+                      fill="#E41D1D"
+                    />
+                  </svg>
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="24"
+                    height="24"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                  >
+                    <rect width="24" height="24" rx="12" fill="white" />
+                    <path
+                      d="M12 8C11.4696 8 10.9609 7.78929 10.5858 7.41421C10.2107 7.03914 10 6.53043 10 6C10 5.46957 10.2107 4.96086 10.5858 4.58579C10.9609 4.21071 11.4696 4 12 4C12.5304 4 13.0391 4.21071 13.4142 4.58579C13.7893 4.96086 14 5.46957 14 6C14 6.53043 13.7893 7.03914 13.4142 7.41421C13.0391 7.78929 12.5304 8 12 8ZM12 14C11.4696 14 10.9609 13.7893 10.5858 13.4142C10.2107 13.0391 10 12.5304 10 12C10 11.4696 10.2107 10.9609 10.5858 10.5858C10.9609 10.2107 11.4696 10 12 10C12.5304 10 13.0391 10.2107 13.4142 10.5858C13.7893 10.9609 14 11.4696 14 12C14 12.5304 13.7893 13.0391 13.4142 13.4142C13.0391 13.7893 12.5304 14 12 14ZM12 20C11.4696 20 10.9609 19.7893 10.5858 19.4142C10.2107 19.0391 10 18.5304 10 18C10 17.4696 10.2107 16.9609 10.5858 16.5858C10.9609 16.2107 11.4696 16 12 16C12.5304 16 13.0391 16.2107 13.4142 16.5858C13.7893 16.9609 14 17.4696 14 18C14 18.5304 13.7893 19.0391 13.4142 19.4142C13.0391 19.7893 12.5304 20 12 20Z"
+                      fill="#B4B4B4"
+                    />
+                  </svg>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <span
+                    style="
+                      width: 3px;
+                      background-color: #9747ff;
+                      height: 100%;
+                      position: absolute;
+                      top: 0;
+                      left: 0;
+                    "
+                  ></span>
+                  <input type="checkbox" />
+                </td>
+                <td>
+                  839494 <br />
+                  <div class="indentDate commonPara">23 Sep’24</div>
+                </td>
+                <td>
+                  389304A1
+                  <div class="itemList commonPara">Prev. POs</div>
+                </td>
+                <td>24 Sep'24</td>
+                <td>Domestic</td>
+                <td>
+                  Cricket Bats
+                  <div class="itemList commonPara">+ 4 more items</div>
+                </td>
+                <td>Madras Rubber Factory</td>
+                <td>4893944</td>
+                <td>3940-3292</td>
+                <td>
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="24"
+                    height="24"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                  >
+                    <rect width="24" height="24" rx="12" fill="white" />
+                    <path
+                      fill-rule="evenodd"
+                      clip-rule="evenodd"
+                      d="M18.6953 7.2928C18.8828 7.48033 18.9881 7.73465 18.9881 7.99983C18.9881 8.265 18.8828 8.51932 18.6953 8.70686L10.695 16.7072C10.5074 16.8947 10.2531 17 9.98792 17C9.72275 17 9.46843 16.8947 9.28089 16.7072L5.28072 12.707C5.09856 12.5184 4.99776 12.2658 5.00004 12.0036C5.00232 11.7414 5.10749 11.4906 5.29291 11.3052C5.47832 11.1197 5.72914 11.0146 5.99135 11.0123C6.25356 11.01 6.50617 11.1108 6.69478 11.293L9.98792 14.5861L17.2812 7.2928C17.4688 7.10532 17.7231 7 17.9883 7C18.2534 7 18.5078 7.10532 18.6953 7.2928Z"
+                      fill="#69AC6C"
+                    />
+                  </svg>
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="24"
+                    height="24"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    style="margin-right: 20px"
+                  >
+                    <rect width="24" height="24" rx="12" fill="white" />
+                    <path
+                      fill-rule="evenodd"
+                      clip-rule="evenodd"
+                      d="M7.24374 7.25441C7.39986 7.09818 7.61157 7.01042 7.83232 7.01042C8.05307 7.01042 8.26478 7.09818 8.42089 7.25441L11.9948 10.8319L15.5687 7.25441C15.6455 7.17482 15.7374 7.11133 15.8389 7.06766C15.9405 7.02398 16.0497 7.00099 16.1603 7.00003C16.2708 6.99907 16.3804 7.02015 16.4827 7.06206C16.5851 7.10396 16.678 7.16583 16.7562 7.24408C16.8343 7.32232 16.8961 7.41536 16.938 7.51778C16.9799 7.62019 17.0009 7.72993 17 7.84057C16.999 7.95122 16.976 8.06057 16.9324 8.16224C16.8888 8.26391 16.8254 8.35587 16.7458 8.43274L13.1719 12.0102L16.7458 15.5877C16.8975 15.7449 16.9814 15.9554 16.9795 16.1739C16.9776 16.3924 16.8901 16.6014 16.7357 16.7559C16.5814 16.9104 16.3726 16.9981 16.1543 17C15.936 17.0019 15.7257 16.9179 15.5687 16.7661L11.9948 13.1886L8.42089 16.7661C8.26388 16.9179 8.05359 17.0019 7.83531 17C7.61704 16.9981 7.40824 16.9104 7.25388 16.7559C7.09953 16.6014 7.01198 16.3924 7.01008 16.1739C7.00819 15.9554 7.0921 15.7449 7.24374 15.5877L10.8176 12.0102L7.24374 8.43274C7.08767 8.27647 7 8.06454 7 7.84357C7 7.6226 7.08767 7.41068 7.24374 7.25441Z"
+                      fill="#E41D1D"
+                    />
+                  </svg>
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="24"
+                    height="24"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                  >
+                    <rect width="24" height="24" rx="12" fill="white" />
+                    <path
+                      d="M12 8C11.4696 8 10.9609 7.78929 10.5858 7.41421C10.2107 7.03914 10 6.53043 10 6C10 5.46957 10.2107 4.96086 10.5858 4.58579C10.9609 4.21071 11.4696 4 12 4C12.5304 4 13.0391 4.21071 13.4142 4.58579C13.7893 4.96086 14 5.46957 14 6C14 6.53043 13.7893 7.03914 13.4142 7.41421C13.0391 7.78929 12.5304 8 12 8ZM12 14C11.4696 14 10.9609 13.7893 10.5858 13.4142C10.2107 13.0391 10 12.5304 10 12C10 11.4696 10.2107 10.9609 10.5858 10.5858C10.9609 10.2107 11.4696 10 12 10C12.5304 10 13.0391 10.2107 13.4142 10.5858C13.7893 10.9609 14 11.4696 14 12C14 12.5304 13.7893 13.0391 13.4142 13.4142C13.0391 13.7893 12.5304 14 12 14ZM12 20C11.4696 20 10.9609 19.7893 10.5858 19.4142C10.2107 19.0391 10 18.5304 10 18C10 17.4696 10.2107 16.9609 10.5858 16.5858C10.9609 16.2107 11.4696 16 12 16C12.5304 16 13.0391 16.2107 13.4142 16.5858C13.7893 16.9609 14 17.4696 14 18C14 18.5304 13.7893 19.0391 13.4142 19.4142C13.0391 19.7893 12.5304 20 12 20Z"
+                      fill="#B4B4B4"
+                    />
+                  </svg>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <span
+                    style="
+                      width: 3px;
+                      background-color: #9747ff;
+                      height: 100%;
+                      position: absolute;
+                      top: 0;
+                      left: 0;
+                    "
+                  ></span>
+                  <input type="checkbox" />
+                </td>
+                <td>
+                  839494 <br />
+                  <div class="indentDate commonPara">23 Sep’24</div>
+                </td>
+                <td>
+                  389304A1
+                  <div class="itemList commonPara">Prev. POs</div>
+                </td>
+                <td>24 Sep'24</td>
+                <td>Domestic</td>
+                <td>
+                  Cricket Bats
+                  <div class="itemList commonPara">+ 4 more items</div>
+                </td>
+                <td>Madras Rubber Factory</td>
+                <td>4893944</td>
+                <td>3940-3292</td>
+                <td>
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="24"
+                    height="24"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                  >
+                    <rect width="24" height="24" rx="12" fill="white" />
+                    <path
+                      fill-rule="evenodd"
+                      clip-rule="evenodd"
+                      d="M18.6953 7.2928C18.8828 7.48033 18.9881 7.73465 18.9881 7.99983C18.9881 8.265 18.8828 8.51932 18.6953 8.70686L10.695 16.7072C10.5074 16.8947 10.2531 17 9.98792 17C9.72275 17 9.46843 16.8947 9.28089 16.7072L5.28072 12.707C5.09856 12.5184 4.99776 12.2658 5.00004 12.0036C5.00232 11.7414 5.10749 11.4906 5.29291 11.3052C5.47832 11.1197 5.72914 11.0146 5.99135 11.0123C6.25356 11.01 6.50617 11.1108 6.69478 11.293L9.98792 14.5861L17.2812 7.2928C17.4688 7.10532 17.7231 7 17.9883 7C18.2534 7 18.5078 7.10532 18.6953 7.2928Z"
+                      fill="#69AC6C"
+                    />
+                  </svg>
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="24"
+                    height="24"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    style="margin-right: 20px"
+                  >
+                    <rect width="24" height="24" rx="12" fill="white" />
+                    <path
+                      fill-rule="evenodd"
+                      clip-rule="evenodd"
+                      d="M7.24374 7.25441C7.39986 7.09818 7.61157 7.01042 7.83232 7.01042C8.05307 7.01042 8.26478 7.09818 8.42089 7.25441L11.9948 10.8319L15.5687 7.25441C15.6455 7.17482 15.7374 7.11133 15.8389 7.06766C15.9405 7.02398 16.0497 7.00099 16.1603 7.00003C16.2708 6.99907 16.3804 7.02015 16.4827 7.06206C16.5851 7.10396 16.678 7.16583 16.7562 7.24408C16.8343 7.32232 16.8961 7.41536 16.938 7.51778C16.9799 7.62019 17.0009 7.72993 17 7.84057C16.999 7.95122 16.976 8.06057 16.9324 8.16224C16.8888 8.26391 16.8254 8.35587 16.7458 8.43274L13.1719 12.0102L16.7458 15.5877C16.8975 15.7449 16.9814 15.9554 16.9795 16.1739C16.9776 16.3924 16.8901 16.6014 16.7357 16.7559C16.5814 16.9104 16.3726 16.9981 16.1543 17C15.936 17.0019 15.7257 16.9179 15.5687 16.7661L11.9948 13.1886L8.42089 16.7661C8.26388 16.9179 8.05359 17.0019 7.83531 17C7.61704 16.9981 7.40824 16.9104 7.25388 16.7559C7.09953 16.6014 7.01198 16.3924 7.01008 16.1739C7.00819 15.9554 7.0921 15.7449 7.24374 15.5877L10.8176 12.0102L7.24374 8.43274C7.08767 8.27647 7 8.06454 7 7.84357C7 7.6226 7.08767 7.41068 7.24374 7.25441Z"
+                      fill="#E41D1D"
+                    />
+                  </svg>
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="24"
+                    height="24"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                  >
+                    <rect width="24" height="24" rx="12" fill="white" />
+                    <path
+                      d="M12 8C11.4696 8 10.9609 7.78929 10.5858 7.41421C10.2107 7.03914 10 6.53043 10 6C10 5.46957 10.2107 4.96086 10.5858 4.58579C10.9609 4.21071 11.4696 4 12 4C12.5304 4 13.0391 4.21071 13.4142 4.58579C13.7893 4.96086 14 5.46957 14 6C14 6.53043 13.7893 7.03914 13.4142 7.41421C13.0391 7.78929 12.5304 8 12 8ZM12 14C11.4696 14 10.9609 13.7893 10.5858 13.4142C10.2107 13.0391 10 12.5304 10 12C10 11.4696 10.2107 10.9609 10.5858 10.5858C10.9609 10.2107 11.4696 10 12 10C12.5304 10 13.0391 10.2107 13.4142 10.5858C13.7893 10.9609 14 11.4696 14 12C14 12.5304 13.7893 13.0391 13.4142 13.4142C13.0391 13.7893 12.5304 14 12 14ZM12 20C11.4696 20 10.9609 19.7893 10.5858 19.4142C10.2107 19.0391 10 18.5304 10 18C10 17.4696 10.2107 16.9609 10.5858 16.5858C10.9609 16.2107 11.4696 16 12 16C12.5304 16 13.0391 16.2107 13.4142 16.5858C13.7893 16.9609 14 17.4696 14 18C14 18.5304 13.7893 19.0391 13.4142 19.4142C13.0391 19.7893 12.5304 20 12 20Z"
+                      fill="#B4B4B4"
+                    />
+                  </svg>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <span
+                    style="
+                      width: 3px;
+                      background-color: #9747ff;
+                      height: 100%;
+                      position: absolute;
+                      top: 0;
+                      left: 0;
+                    "
+                  ></span>
+                  <input type="checkbox" />
+                </td>
+                <td>
+                  839494 <br />
+                  <div class="indentDate commonPara">23 Sep’24</div>
+                </td>
+                <td>
+                  389304A1
+                  <div class="itemList commonPara">Prev. POs</div>
+                </td>
+                <td>24 Sep'24</td>
+                <td>Domestic</td>
+                <td>
+                  Cricket Bats
+                  <div class="itemList commonPara">+ 4 more items</div>
+                </td>
+                <td>Madras Rubber Factory</td>
+                <td>4893944</td>
+                <td>3940-3292</td>
+                <td>
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="24"
+                    height="24"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                  >
+                    <rect width="24" height="24" rx="12" fill="white" />
+                    <path
+                      fill-rule="evenodd"
+                      clip-rule="evenodd"
+                      d="M18.6953 7.2928C18.8828 7.48033 18.9881 7.73465 18.9881 7.99983C18.9881 8.265 18.8828 8.51932 18.6953 8.70686L10.695 16.7072C10.5074 16.8947 10.2531 17 9.98792 17C9.72275 17 9.46843 16.8947 9.28089 16.7072L5.28072 12.707C5.09856 12.5184 4.99776 12.2658 5.00004 12.0036C5.00232 11.7414 5.10749 11.4906 5.29291 11.3052C5.47832 11.1197 5.72914 11.0146 5.99135 11.0123C6.25356 11.01 6.50617 11.1108 6.69478 11.293L9.98792 14.5861L17.2812 7.2928C17.4688 7.10532 17.7231 7 17.9883 7C18.2534 7 18.5078 7.10532 18.6953 7.2928Z"
+                      fill="#69AC6C"
+                    />
+                  </svg>
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="24"
+                    height="24"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    style="margin-right: 20px"
+                  >
+                    <rect width="24" height="24" rx="12" fill="white" />
+                    <path
+                      fill-rule="evenodd"
+                      clip-rule="evenodd"
+                      d="M7.24374 7.25441C7.39986 7.09818 7.61157 7.01042 7.83232 7.01042C8.05307 7.01042 8.26478 7.09818 8.42089 7.25441L11.9948 10.8319L15.5687 7.25441C15.6455 7.17482 15.7374 7.11133 15.8389 7.06766C15.9405 7.02398 16.0497 7.00099 16.1603 7.00003C16.2708 6.99907 16.3804 7.02015 16.4827 7.06206C16.5851 7.10396 16.678 7.16583 16.7562 7.24408C16.8343 7.32232 16.8961 7.41536 16.938 7.51778C16.9799 7.62019 17.0009 7.72993 17 7.84057C16.999 7.95122 16.976 8.06057 16.9324 8.16224C16.8888 8.26391 16.8254 8.35587 16.7458 8.43274L13.1719 12.0102L16.7458 15.5877C16.8975 15.7449 16.9814 15.9554 16.9795 16.1739C16.9776 16.3924 16.8901 16.6014 16.7357 16.7559C16.5814 16.9104 16.3726 16.9981 16.1543 17C15.936 17.0019 15.7257 16.9179 15.5687 16.7661L11.9948 13.1886L8.42089 16.7661C8.26388 16.9179 8.05359 17.0019 7.83531 17C7.61704 16.9981 7.40824 16.9104 7.25388 16.7559C7.09953 16.6014 7.01198 16.3924 7.01008 16.1739C7.00819 15.9554 7.0921 15.7449 7.24374 15.5877L10.8176 12.0102L7.24374 8.43274C7.08767 8.27647 7 8.06454 7 7.84357C7 7.6226 7.08767 7.41068 7.24374 7.25441Z"
+                      fill="#E41D1D"
+                    />
+                  </svg>
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="24"
+                    height="24"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                  >
+                    <rect width="24" height="24" rx="12" fill="white" />
+                    <path
+                      d="M12 8C11.4696 8 10.9609 7.78929 10.5858 7.41421C10.2107 7.03914 10 6.53043 10 6C10 5.46957 10.2107 4.96086 10.5858 4.58579C10.9609 4.21071 11.4696 4 12 4C12.5304 4 13.0391 4.21071 13.4142 4.58579C13.7893 4.96086 14 5.46957 14 6C14 6.53043 13.7893 7.03914 13.4142 7.41421C13.0391 7.78929 12.5304 8 12 8ZM12 14C11.4696 14 10.9609 13.7893 10.5858 13.4142C10.2107 13.0391 10 12.5304 10 12C10 11.4696 10.2107 10.9609 10.5858 10.5858C10.9609 10.2107 11.4696 10 12 10C12.5304 10 13.0391 10.2107 13.4142 10.5858C13.7893 10.9609 14 11.4696 14 12C14 12.5304 13.7893 13.0391 13.4142 13.4142C13.0391 13.7893 12.5304 14 12 14ZM12 20C11.4696 20 10.9609 19.7893 10.5858 19.4142C10.2107 19.0391 10 18.5304 10 18C10 17.4696 10.2107 16.9609 10.5858 16.5858C10.9609 16.2107 11.4696 16 12 16C12.5304 16 13.0391 16.2107 13.4142 16.5858C13.7893 16.9609 14 17.4696 14 18C14 18.5304 13.7893 19.0391 13.4142 19.4142C13.0391 19.7893 12.5304 20 12 20Z"
+                      fill="#B4B4B4"
+                    />
+                  </svg>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <span
+                    style="
+                      width: 3px;
+                      background-color: #9747ff;
+                      height: 100%;
+                      position: absolute;
+                      top: 0;
+                      left: 0;
+                    "
+                  ></span>
+                  <input type="checkbox" />
+                </td>
+                <td>
+                  839494 <br />
+                  <div class="indentDate commonPara">23 Sep’24</div>
+                </td>
+                <td>
+                  389304A1
+                  <div class="itemList commonPara">Prev. POs</div>
+                </td>
+                <td>24 Sep'24</td>
+                <td>Domestic</td>
+                <td>
+                  Cricket Bats
+                  <div class="itemList commonPara">+ 4 more items</div>
+                </td>
+                <td>Madras Rubber Factory</td>
+                <td>4893944</td>
+                <td>3940-3292</td>
+                <td>
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="24"
+                    height="24"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                  >
+                    <rect width="24" height="24" rx="12" fill="white" />
+                    <path
+                      fill-rule="evenodd"
+                      clip-rule="evenodd"
+                      d="M18.6953 7.2928C18.8828 7.48033 18.9881 7.73465 18.9881 7.99983C18.9881 8.265 18.8828 8.51932 18.6953 8.70686L10.695 16.7072C10.5074 16.8947 10.2531 17 9.98792 17C9.72275 17 9.46843 16.8947 9.28089 16.7072L5.28072 12.707C5.09856 12.5184 4.99776 12.2658 5.00004 12.0036C5.00232 11.7414 5.10749 11.4906 5.29291 11.3052C5.47832 11.1197 5.72914 11.0146 5.99135 11.0123C6.25356 11.01 6.50617 11.1108 6.69478 11.293L9.98792 14.5861L17.2812 7.2928C17.4688 7.10532 17.7231 7 17.9883 7C18.2534 7 18.5078 7.10532 18.6953 7.2928Z"
+                      fill="#69AC6C"
+                    />
+                  </svg>
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="24"
+                    height="24"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    style="margin-right: 20px"
+                  >
+                    <rect width="24" height="24" rx="12" fill="white" />
+                    <path
+                      fill-rule="evenodd"
+                      clip-rule="evenodd"
+                      d="M7.24374 7.25441C7.39986 7.09818 7.61157 7.01042 7.83232 7.01042C8.05307 7.01042 8.26478 7.09818 8.42089 7.25441L11.9948 10.8319L15.5687 7.25441C15.6455 7.17482 15.7374 7.11133 15.8389 7.06766C15.9405 7.02398 16.0497 7.00099 16.1603 7.00003C16.2708 6.99907 16.3804 7.02015 16.4827 7.06206C16.5851 7.10396 16.678 7.16583 16.7562 7.24408C16.8343 7.32232 16.8961 7.41536 16.938 7.51778C16.9799 7.62019 17.0009 7.72993 17 7.84057C16.999 7.95122 16.976 8.06057 16.9324 8.16224C16.8888 8.26391 16.8254 8.35587 16.7458 8.43274L13.1719 12.0102L16.7458 15.5877C16.8975 15.7449 16.9814 15.9554 16.9795 16.1739C16.9776 16.3924 16.8901 16.6014 16.7357 16.7559C16.5814 16.9104 16.3726 16.9981 16.1543 17C15.936 17.0019 15.7257 16.9179 15.5687 16.7661L11.9948 13.1886L8.42089 16.7661C8.26388 16.9179 8.05359 17.0019 7.83531 17C7.61704 16.9981 7.40824 16.9104 7.25388 16.7559C7.09953 16.6014 7.01198 16.3924 7.01008 16.1739C7.00819 15.9554 7.0921 15.7449 7.24374 15.5877L10.8176 12.0102L7.24374 8.43274C7.08767 8.27647 7 8.06454 7 7.84357C7 7.6226 7.08767 7.41068 7.24374 7.25441Z"
+                      fill="#E41D1D"
+                    />
+                  </svg>
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="24"
+                    height="24"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                  >
+                    <rect width="24" height="24" rx="12" fill="white" />
+                    <path
+                      d="M12 8C11.4696 8 10.9609 7.78929 10.5858 7.41421C10.2107 7.03914 10 6.53043 10 6C10 5.46957 10.2107 4.96086 10.5858 4.58579C10.9609 4.21071 11.4696 4 12 4C12.5304 4 13.0391 4.21071 13.4142 4.58579C13.7893 4.96086 14 5.46957 14 6C14 6.53043 13.7893 7.03914 13.4142 7.41421C13.0391 7.78929 12.5304 8 12 8ZM12 14C11.4696 14 10.9609 13.7893 10.5858 13.4142C10.2107 13.0391 10 12.5304 10 12C10 11.4696 10.2107 10.9609 10.5858 10.5858C10.9609 10.2107 11.4696 10 12 10C12.5304 10 13.0391 10.2107 13.4142 10.5858C13.7893 10.9609 14 11.4696 14 12C14 12.5304 13.7893 13.0391 13.4142 13.4142C13.0391 13.7893 12.5304 14 12 14ZM12 20C11.4696 20 10.9609 19.7893 10.5858 19.4142C10.2107 19.0391 10 18.5304 10 18C10 17.4696 10.2107 16.9609 10.5858 16.5858C10.9609 16.2107 11.4696 16 12 16C12.5304 16 13.0391 16.2107 13.4142 16.5858C13.7893 16.9609 14 17.4696 14 18C14 18.5304 13.7893 19.0391 13.4142 19.4142C13.0391 19.7893 12.5304 20 12 20Z"
+                      fill="#B4B4B4"
+                    />
+                  </svg>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <span
+                    style="
+                      width: 3px;
+                      background-color: #9747ff;
+                      height: 100%;
+                      position: absolute;
+                      top: 0;
+                      left: 0;
+                    "
+                  ></span>
+                  <input type="checkbox" />
+                </td>
+                <td>
+                  839494 <br />
+                  <div class="indentDate commonPara">23 Sep’24</div>
+                </td>
+                <td>
+                  389304A1
+                  <div class="itemList commonPara">Prev. POs</div>
+                </td>
+                <td>24 Sep'24</td>
+                <td>Domestic</td>
+                <td>
+                  Cricket Bats
+                  <div class="itemList commonPara">+ 4 more items</div>
+                </td>
+                <td>Madras Rubber Factory</td>
+                <td>4893944</td>
+                <td>3940-3292</td>
+                <td>
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="24"
+                    height="24"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                  >
+                    <rect width="24" height="24" rx="12" fill="white" />
+                    <path
+                      fill-rule="evenodd"
+                      clip-rule="evenodd"
+                      d="M18.6953 7.2928C18.8828 7.48033 18.9881 7.73465 18.9881 7.99983C18.9881 8.265 18.8828 8.51932 18.6953 8.70686L10.695 16.7072C10.5074 16.8947 10.2531 17 9.98792 17C9.72275 17 9.46843 16.8947 9.28089 16.7072L5.28072 12.707C5.09856 12.5184 4.99776 12.2658 5.00004 12.0036C5.00232 11.7414 5.10749 11.4906 5.29291 11.3052C5.47832 11.1197 5.72914 11.0146 5.99135 11.0123C6.25356 11.01 6.50617 11.1108 6.69478 11.293L9.98792 14.5861L17.2812 7.2928C17.4688 7.10532 17.7231 7 17.9883 7C18.2534 7 18.5078 7.10532 18.6953 7.2928Z"
+                      fill="#69AC6C"
+                    />
+                  </svg>
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="24"
+                    height="24"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    style="margin-right: 20px"
+                  >
+                    <rect width="24" height="24" rx="12" fill="white" />
+                    <path
+                      fill-rule="evenodd"
+                      clip-rule="evenodd"
+                      d="M7.24374 7.25441C7.39986 7.09818 7.61157 7.01042 7.83232 7.01042C8.05307 7.01042 8.26478 7.09818 8.42089 7.25441L11.9948 10.8319L15.5687 7.25441C15.6455 7.17482 15.7374 7.11133 15.8389 7.06766C15.9405 7.02398 16.0497 7.00099 16.1603 7.00003C16.2708 6.99907 16.3804 7.02015 16.4827 7.06206C16.5851 7.10396 16.678 7.16583 16.7562 7.24408C16.8343 7.32232 16.8961 7.41536 16.938 7.51778C16.9799 7.62019 17.0009 7.72993 17 7.84057C16.999 7.95122 16.976 8.06057 16.9324 8.16224C16.8888 8.26391 16.8254 8.35587 16.7458 8.43274L13.1719 12.0102L16.7458 15.5877C16.8975 15.7449 16.9814 15.9554 16.9795 16.1739C16.9776 16.3924 16.8901 16.6014 16.7357 16.7559C16.5814 16.9104 16.3726 16.9981 16.1543 17C15.936 17.0019 15.7257 16.9179 15.5687 16.7661L11.9948 13.1886L8.42089 16.7661C8.26388 16.9179 8.05359 17.0019 7.83531 17C7.61704 16.9981 7.40824 16.9104 7.25388 16.7559C7.09953 16.6014 7.01198 16.3924 7.01008 16.1739C7.00819 15.9554 7.0921 15.7449 7.24374 15.5877L10.8176 12.0102L7.24374 8.43274C7.08767 8.27647 7 8.06454 7 7.84357C7 7.6226 7.08767 7.41068 7.24374 7.25441Z"
+                      fill="#E41D1D"
+                    />
+                  </svg>
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="24"
+                    height="24"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                  >
+                    <rect width="24" height="24" rx="12" fill="white" />
+                    <path
+                      d="M12 8C11.4696 8 10.9609 7.78929 10.5858 7.41421C10.2107 7.03914 10 6.53043 10 6C10 5.46957 10.2107 4.96086 10.5858 4.58579C10.9609 4.21071 11.4696 4 12 4C12.5304 4 13.0391 4.21071 13.4142 4.58579C13.7893 4.96086 14 5.46957 14 6C14 6.53043 13.7893 7.03914 13.4142 7.41421C13.0391 7.78929 12.5304 8 12 8ZM12 14C11.4696 14 10.9609 13.7893 10.5858 13.4142C10.2107 13.0391 10 12.5304 10 12C10 11.4696 10.2107 10.9609 10.5858 10.5858C10.9609 10.2107 11.4696 10 12 10C12.5304 10 13.0391 10.2107 13.4142 10.5858C13.7893 10.9609 14 11.4696 14 12C14 12.5304 13.7893 13.0391 13.4142 13.4142C13.0391 13.7893 12.5304 14 12 14ZM12 20C11.4696 20 10.9609 19.7893 10.5858 19.4142C10.2107 19.0391 10 18.5304 10 18C10 17.4696 10.2107 16.9609 10.5858 16.5858C10.9609 16.2107 11.4696 16 12 16C12.5304 16 13.0391 16.2107 13.4142 16.5858C13.7893 16.9609 14 17.4696 14 18C14 18.5304 13.7893 19.0391 13.4142 19.4142C13.0391 19.7893 12.5304 20 12 20Z"
+                      fill="#B4B4B4"
+                    />
+                  </svg>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <span
+                    style="
+                      width: 3px;
+                      background-color: #9747ff;
+                      height: 100%;
+                      position: absolute;
+                      top: 0;
+                      left: 0;
+                    "
+                  ></span>
+                  <input type="checkbox" />
+                </td>
+                <td>
+                  839494 <br />
+                  <div class="indentDate commonPara">23 Sep’24</div>
+                </td>
+                <td>
+                  389304A1
+                  <div class="itemList commonPara">Prev. POs</div>
+                </td>
+                <td>24 Sep'24</td>
+                <td>Domestic</td>
+                <td>
+                  Cricket Bats
+                  <div class="itemList commonPara">+ 4 more items</div>
+                </td>
+                <td>Madras Rubber Factory</td>
+                <td>4893944</td>
+                <td>3940-3292</td>
+                <td>
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="24"
+                    height="24"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                  >
+                    <rect width="24" height="24" rx="12" fill="white" />
+                    <path
+                      fill-rule="evenodd"
+                      clip-rule="evenodd"
+                      d="M18.6953 7.2928C18.8828 7.48033 18.9881 7.73465 18.9881 7.99983C18.9881 8.265 18.8828 8.51932 18.6953 8.70686L10.695 16.7072C10.5074 16.8947 10.2531 17 9.98792 17C9.72275 17 9.46843 16.8947 9.28089 16.7072L5.28072 12.707C5.09856 12.5184 4.99776 12.2658 5.00004 12.0036C5.00232 11.7414 5.10749 11.4906 5.29291 11.3052C5.47832 11.1197 5.72914 11.0146 5.99135 11.0123C6.25356 11.01 6.50617 11.1108 6.69478 11.293L9.98792 14.5861L17.2812 7.2928C17.4688 7.10532 17.7231 7 17.9883 7C18.2534 7 18.5078 7.10532 18.6953 7.2928Z"
+                      fill="#69AC6C"
+                    />
+                  </svg>
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="24"
+                    height="24"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    style="margin-right: 20px"
+                  >
+                    <rect width="24" height="24" rx="12" fill="white" />
+                    <path
+                      fill-rule="evenodd"
+                      clip-rule="evenodd"
+                      d="M7.24374 7.25441C7.39986 7.09818 7.61157 7.01042 7.83232 7.01042C8.05307 7.01042 8.26478 7.09818 8.42089 7.25441L11.9948 10.8319L15.5687 7.25441C15.6455 7.17482 15.7374 7.11133 15.8389 7.06766C15.9405 7.02398 16.0497 7.00099 16.1603 7.00003C16.2708 6.99907 16.3804 7.02015 16.4827 7.06206C16.5851 7.10396 16.678 7.16583 16.7562 7.24408C16.8343 7.32232 16.8961 7.41536 16.938 7.51778C16.9799 7.62019 17.0009 7.72993 17 7.84057C16.999 7.95122 16.976 8.06057 16.9324 8.16224C16.8888 8.26391 16.8254 8.35587 16.7458 8.43274L13.1719 12.0102L16.7458 15.5877C16.8975 15.7449 16.9814 15.9554 16.9795 16.1739C16.9776 16.3924 16.8901 16.6014 16.7357 16.7559C16.5814 16.9104 16.3726 16.9981 16.1543 17C15.936 17.0019 15.7257 16.9179 15.5687 16.7661L11.9948 13.1886L8.42089 16.7661C8.26388 16.9179 8.05359 17.0019 7.83531 17C7.61704 16.9981 7.40824 16.9104 7.25388 16.7559C7.09953 16.6014 7.01198 16.3924 7.01008 16.1739C7.00819 15.9554 7.0921 15.7449 7.24374 15.5877L10.8176 12.0102L7.24374 8.43274C7.08767 8.27647 7 8.06454 7 7.84357C7 7.6226 7.08767 7.41068 7.24374 7.25441Z"
+                      fill="#E41D1D"
+                    />
+                  </svg>
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="24"
+                    height="24"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                  >
+                    <rect width="24" height="24" rx="12" fill="white" />
+                    <path
+                      d="M12 8C11.4696 8 10.9609 7.78929 10.5858 7.41421C10.2107 7.03914 10 6.53043 10 6C10 5.46957 10.2107 4.96086 10.5858 4.58579C10.9609 4.21071 11.4696 4 12 4C12.5304 4 13.0391 4.21071 13.4142 4.58579C13.7893 4.96086 14 5.46957 14 6C14 6.53043 13.7893 7.03914 13.4142 7.41421C13.0391 7.78929 12.5304 8 12 8ZM12 14C11.4696 14 10.9609 13.7893 10.5858 13.4142C10.2107 13.0391 10 12.5304 10 12C10 11.4696 10.2107 10.9609 10.5858 10.5858C10.9609 10.2107 11.4696 10 12 10C12.5304 10 13.0391 10.2107 13.4142 10.5858C13.7893 10.9609 14 11.4696 14 12C14 12.5304 13.7893 13.0391 13.4142 13.4142C13.0391 13.7893 12.5304 14 12 14ZM12 20C11.4696 20 10.9609 19.7893 10.5858 19.4142C10.2107 19.0391 10 18.5304 10 18C10 17.4696 10.2107 16.9609 10.5858 16.5858C10.9609 16.2107 11.4696 16 12 16C12.5304 16 13.0391 16.2107 13.4142 16.5858C13.7893 16.9609 14 17.4696 14 18C14 18.5304 13.7893 19.0391 13.4142 19.4142C13.0391 19.7893 12.5304 20 12 20Z"
+                      fill="#B4B4B4"
+                    />
+                  </svg>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <span
+                    style="
+                      width: 3px;
+                      background-color: #9747ff;
+                      height: 100%;
+                      position: absolute;
+                      top: 0;
+                      left: 0;
+                    "
+                  ></span>
+                  <input type="checkbox" />
+                </td>
+                <td>
+                  839494 <br />
+                  <div class="indentDate commonPara">23 Sep’24</div>
+                </td>
+                <td>
+                  389304A1
+                  <div class="itemList commonPara">Prev. POs</div>
+                </td>
+                <td>24 Sep'24</td>
+                <td>Domestic</td>
+                <td>
+                  Cricket Bats
+                  <div class="itemList commonPara">+ 4 more items</div>
+                </td>
+                <td>Madras Rubber Factory</td>
+                <td>4893944</td>
+                <td>3940-3292</td>
+                <td>
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="24"
+                    height="24"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                  >
+                    <rect width="24" height="24" rx="12" fill="white" />
+                    <path
+                      fill-rule="evenodd"
+                      clip-rule="evenodd"
+                      d="M18.6953 7.2928C18.8828 7.48033 18.9881 7.73465 18.9881 7.99983C18.9881 8.265 18.8828 8.51932 18.6953 8.70686L10.695 16.7072C10.5074 16.8947 10.2531 17 9.98792 17C9.72275 17 9.46843 16.8947 9.28089 16.7072L5.28072 12.707C5.09856 12.5184 4.99776 12.2658 5.00004 12.0036C5.00232 11.7414 5.10749 11.4906 5.29291 11.3052C5.47832 11.1197 5.72914 11.0146 5.99135 11.0123C6.25356 11.01 6.50617 11.1108 6.69478 11.293L9.98792 14.5861L17.2812 7.2928C17.4688 7.10532 17.7231 7 17.9883 7C18.2534 7 18.5078 7.10532 18.6953 7.2928Z"
+                      fill="#69AC6C"
+                    />
+                  </svg>
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="24"
+                    height="24"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    style="margin-right: 20px"
+                  >
+                    <rect width="24" height="24" rx="12" fill="white" />
+                    <path
+                      fill-rule="evenodd"
+                      clip-rule="evenodd"
+                      d="M7.24374 7.25441C7.39986 7.09818 7.61157 7.01042 7.83232 7.01042C8.05307 7.01042 8.26478 7.09818 8.42089 7.25441L11.9948 10.8319L15.5687 7.25441C15.6455 7.17482 15.7374 7.11133 15.8389 7.06766C15.9405 7.02398 16.0497 7.00099 16.1603 7.00003C16.2708 6.99907 16.3804 7.02015 16.4827 7.06206C16.5851 7.10396 16.678 7.16583 16.7562 7.24408C16.8343 7.32232 16.8961 7.41536 16.938 7.51778C16.9799 7.62019 17.0009 7.72993 17 7.84057C16.999 7.95122 16.976 8.06057 16.9324 8.16224C16.8888 8.26391 16.8254 8.35587 16.7458 8.43274L13.1719 12.0102L16.7458 15.5877C16.8975 15.7449 16.9814 15.9554 16.9795 16.1739C16.9776 16.3924 16.8901 16.6014 16.7357 16.7559C16.5814 16.9104 16.3726 16.9981 16.1543 17C15.936 17.0019 15.7257 16.9179 15.5687 16.7661L11.9948 13.1886L8.42089 16.7661C8.26388 16.9179 8.05359 17.0019 7.83531 17C7.61704 16.9981 7.40824 16.9104 7.25388 16.7559C7.09953 16.6014 7.01198 16.3924 7.01008 16.1739C7.00819 15.9554 7.0921 15.7449 7.24374 15.5877L10.8176 12.0102L7.24374 8.43274C7.08767 8.27647 7 8.06454 7 7.84357C7 7.6226 7.08767 7.41068 7.24374 7.25441Z"
+                      fill="#E41D1D"
+                    />
+                  </svg>
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="24"
+                    height="24"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                  >
+                    <rect width="24" height="24" rx="12" fill="white" />
+                    <path
+                      d="M12 8C11.4696 8 10.9609 7.78929 10.5858 7.41421C10.2107 7.03914 10 6.53043 10 6C10 5.46957 10.2107 4.96086 10.5858 4.58579C10.9609 4.21071 11.4696 4 12 4C12.5304 4 13.0391 4.21071 13.4142 4.58579C13.7893 4.96086 14 5.46957 14 6C14 6.53043 13.7893 7.03914 13.4142 7.41421C13.0391 7.78929 12.5304 8 12 8ZM12 14C11.4696 14 10.9609 13.7893 10.5858 13.4142C10.2107 13.0391 10 12.5304 10 12C10 11.4696 10.2107 10.9609 10.5858 10.5858C10.9609 10.2107 11.4696 10 12 10C12.5304 10 13.0391 10.2107 13.4142 10.5858C13.7893 10.9609 14 11.4696 14 12C14 12.5304 13.7893 13.0391 13.4142 13.4142C13.0391 13.7893 12.5304 14 12 14ZM12 20C11.4696 20 10.9609 19.7893 10.5858 19.4142C10.2107 19.0391 10 18.5304 10 18C10 17.4696 10.2107 16.9609 10.5858 16.5858C10.9609 16.2107 11.4696 16 12 16C12.5304 16 13.0391 16.2107 13.4142 16.5858C13.7893 16.9609 14 17.4696 14 18C14 18.5304 13.7893 19.0391 13.4142 19.4142C13.0391 19.7893 12.5304 20 12 20Z"
+                      fill="#B4B4B4"
+                    />
+                  </svg>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <span
+                    style="
+                      width: 3px;
+                      background-color: #9747ff;
+                      height: 100%;
+                      position: absolute;
+                      top: 0;
+                      left: 0;
+                    "
+                  ></span>
+                  <input type="checkbox" />
+                </td>
+                <td>
+                  839494 <br />
+                  <div class="indentDate commonPara">23 Sep’24</div>
+                </td>
+                <td>
+                  389304A1
+                  <div class="itemList commonPara">Prev. POs</div>
+                </td>
+                <td>24 Sep'24</td>
+                <td>Domestic</td>
+                <td>
+                  Cricket Bats
+                  <div class="itemList commonPara">+ 4 more items</div>
+                </td>
+                <td>Madras Rubber Factory</td>
+                <td>4893944</td>
+                <td>3940-3292</td>
+                <td>
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="24"
+                    height="24"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                  >
+                    <rect width="24" height="24" rx="12" fill="white" />
+                    <path
+                      fill-rule="evenodd"
+                      clip-rule="evenodd"
+                      d="M18.6953 7.2928C18.8828 7.48033 18.9881 7.73465 18.9881 7.99983C18.9881 8.265 18.8828 8.51932 18.6953 8.70686L10.695 16.7072C10.5074 16.8947 10.2531 17 9.98792 17C9.72275 17 9.46843 16.8947 9.28089 16.7072L5.28072 12.707C5.09856 12.5184 4.99776 12.2658 5.00004 12.0036C5.00232 11.7414 5.10749 11.4906 5.29291 11.3052C5.47832 11.1197 5.72914 11.0146 5.99135 11.0123C6.25356 11.01 6.50617 11.1108 6.69478 11.293L9.98792 14.5861L17.2812 7.2928C17.4688 7.10532 17.7231 7 17.9883 7C18.2534 7 18.5078 7.10532 18.6953 7.2928Z"
+                      fill="#69AC6C"
+                    />
+                  </svg>
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="24"
+                    height="24"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    style="margin-right: 20px"
+                  >
+                    <rect width="24" height="24" rx="12" fill="white" />
+                    <path
+                      fill-rule="evenodd"
+                      clip-rule="evenodd"
+                      d="M7.24374 7.25441C7.39986 7.09818 7.61157 7.01042 7.83232 7.01042C8.05307 7.01042 8.26478 7.09818 8.42089 7.25441L11.9948 10.8319L15.5687 7.25441C15.6455 7.17482 15.7374 7.11133 15.8389 7.06766C15.9405 7.02398 16.0497 7.00099 16.1603 7.00003C16.2708 6.99907 16.3804 7.02015 16.4827 7.06206C16.5851 7.10396 16.678 7.16583 16.7562 7.24408C16.8343 7.32232 16.8961 7.41536 16.938 7.51778C16.9799 7.62019 17.0009 7.72993 17 7.84057C16.999 7.95122 16.976 8.06057 16.9324 8.16224C16.8888 8.26391 16.8254 8.35587 16.7458 8.43274L13.1719 12.0102L16.7458 15.5877C16.8975 15.7449 16.9814 15.9554 16.9795 16.1739C16.9776 16.3924 16.8901 16.6014 16.7357 16.7559C16.5814 16.9104 16.3726 16.9981 16.1543 17C15.936 17.0019 15.7257 16.9179 15.5687 16.7661L11.9948 13.1886L8.42089 16.7661C8.26388 16.9179 8.05359 17.0019 7.83531 17C7.61704 16.9981 7.40824 16.9104 7.25388 16.7559C7.09953 16.6014 7.01198 16.3924 7.01008 16.1739C7.00819 15.9554 7.0921 15.7449 7.24374 15.5877L10.8176 12.0102L7.24374 8.43274C7.08767 8.27647 7 8.06454 7 7.84357C7 7.6226 7.08767 7.41068 7.24374 7.25441Z"
+                      fill="#E41D1D"
+                    />
+                  </svg>
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="24"
+                    height="24"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                  >
+                    <rect width="24" height="24" rx="12" fill="white" />
+                    <path
+                      d="M12 8C11.4696 8 10.9609 7.78929 10.5858 7.41421C10.2107 7.03914 10 6.53043 10 6C10 5.46957 10.2107 4.96086 10.5858 4.58579C10.9609 4.21071 11.4696 4 12 4C12.5304 4 13.0391 4.21071 13.4142 4.58579C13.7893 4.96086 14 5.46957 14 6C14 6.53043 13.7893 7.03914 13.4142 7.41421C13.0391 7.78929 12.5304 8 12 8ZM12 14C11.4696 14 10.9609 13.7893 10.5858 13.4142C10.2107 13.0391 10 12.5304 10 12C10 11.4696 10.2107 10.9609 10.5858 10.5858C10.9609 10.2107 11.4696 10 12 10C12.5304 10 13.0391 10.2107 13.4142 10.5858C13.7893 10.9609 14 11.4696 14 12C14 12.5304 13.7893 13.0391 13.4142 13.4142C13.0391 13.7893 12.5304 14 12 14ZM12 20C11.4696 20 10.9609 19.7893 10.5858 19.4142C10.2107 19.0391 10 18.5304 10 18C10 17.4696 10.2107 16.9609 10.5858 16.5858C10.9609 16.2107 11.4696 16 12 16C12.5304 16 13.0391 16.2107 13.4142 16.5858C13.7893 16.9609 14 17.4696 14 18C14 18.5304 13.7893 19.0391 13.4142 19.4142C13.0391 19.7893 12.5304 20 12 20Z"
+                      fill="#B4B4B4"
+                    />
+                  </svg>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <span
+                    style="
+                      width: 3px;
+                      background-color: #9747ff;
+                      height: 100%;
+                      position: absolute;
+                      top: 0;
+                      left: 0;
+                    "
+                  ></span>
+                  <input type="checkbox" />
+                </td>
+                <td>
+                  839494 <br />
+                  <div class="indentDate commonPara">23 Sep’24</div>
+                </td>
+                <td>
+                  389304A1
+                  <div class="itemList commonPara">Prev. POs</div>
+                </td>
+                <td>24 Sep'24</td>
+                <td>Domestic</td>
+                <td>
+                  Cricket Bats
+                  <div class="itemList commonPara">+ 4 more items</div>
+                </td>
+                <td>Madras Rubber Factory</td>
+                <td>4893944</td>
+                <td>3940-3292</td>
+                <td>
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="24"
+                    height="24"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                  >
+                    <rect width="24" height="24" rx="12" fill="white" />
+                    <path
+                      fill-rule="evenodd"
+                      clip-rule="evenodd"
+                      d="M18.6953 7.2928C18.8828 7.48033 18.9881 7.73465 18.9881 7.99983C18.9881 8.265 18.8828 8.51932 18.6953 8.70686L10.695 16.7072C10.5074 16.8947 10.2531 17 9.98792 17C9.72275 17 9.46843 16.8947 9.28089 16.7072L5.28072 12.707C5.09856 12.5184 4.99776 12.2658 5.00004 12.0036C5.00232 11.7414 5.10749 11.4906 5.29291 11.3052C5.47832 11.1197 5.72914 11.0146 5.99135 11.0123C6.25356 11.01 6.50617 11.1108 6.69478 11.293L9.98792 14.5861L17.2812 7.2928C17.4688 7.10532 17.7231 7 17.9883 7C18.2534 7 18.5078 7.10532 18.6953 7.2928Z"
+                      fill="#69AC6C"
+                    />
+                  </svg>
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="24"
+                    height="24"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    style="margin-right: 20px"
+                  >
+                    <rect width="24" height="24" rx="12" fill="white" />
+                    <path
+                      fill-rule="evenodd"
+                      clip-rule="evenodd"
+                      d="M7.24374 7.25441C7.39986 7.09818 7.61157 7.01042 7.83232 7.01042C8.05307 7.01042 8.26478 7.09818 8.42089 7.25441L11.9948 10.8319L15.5687 7.25441C15.6455 7.17482 15.7374 7.11133 15.8389 7.06766C15.9405 7.02398 16.0497 7.00099 16.1603 7.00003C16.2708 6.99907 16.3804 7.02015 16.4827 7.06206C16.5851 7.10396 16.678 7.16583 16.7562 7.24408C16.8343 7.32232 16.8961 7.41536 16.938 7.51778C16.9799 7.62019 17.0009 7.72993 17 7.84057C16.999 7.95122 16.976 8.06057 16.9324 8.16224C16.8888 8.26391 16.8254 8.35587 16.7458 8.43274L13.1719 12.0102L16.7458 15.5877C16.8975 15.7449 16.9814 15.9554 16.9795 16.1739C16.9776 16.3924 16.8901 16.6014 16.7357 16.7559C16.5814 16.9104 16.3726 16.9981 16.1543 17C15.936 17.0019 15.7257 16.9179 15.5687 16.7661L11.9948 13.1886L8.42089 16.7661C8.26388 16.9179 8.05359 17.0019 7.83531 17C7.61704 16.9981 7.40824 16.9104 7.25388 16.7559C7.09953 16.6014 7.01198 16.3924 7.01008 16.1739C7.00819 15.9554 7.0921 15.7449 7.24374 15.5877L10.8176 12.0102L7.24374 8.43274C7.08767 8.27647 7 8.06454 7 7.84357C7 7.6226 7.08767 7.41068 7.24374 7.25441Z"
+                      fill="#E41D1D"
+                    />
+                  </svg>
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="24"
+                    height="24"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                  >
+                    <rect width="24" height="24" rx="12" fill="white" />
+                    <path
+                      d="M12 8C11.4696 8 10.9609 7.78929 10.5858 7.41421C10.2107 7.03914 10 6.53043 10 6C10 5.46957 10.2107 4.96086 10.5858 4.58579C10.9609 4.21071 11.4696 4 12 4C12.5304 4 13.0391 4.21071 13.4142 4.58579C13.7893 4.96086 14 5.46957 14 6C14 6.53043 13.7893 7.03914 13.4142 7.41421C13.0391 7.78929 12.5304 8 12 8ZM12 14C11.4696 14 10.9609 13.7893 10.5858 13.4142C10.2107 13.0391 10 12.5304 10 12C10 11.4696 10.2107 10.9609 10.5858 10.5858C10.9609 10.2107 11.4696 10 12 10C12.5304 10 13.0391 10.2107 13.4142 10.5858C13.7893 10.9609 14 11.4696 14 12C14 12.5304 13.7893 13.0391 13.4142 13.4142C13.0391 13.7893 12.5304 14 12 14ZM12 20C11.4696 20 10.9609 19.7893 10.5858 19.4142C10.2107 19.0391 10 18.5304 10 18C10 17.4696 10.2107 16.9609 10.5858 16.5858C10.9609 16.2107 11.4696 16 12 16C12.5304 16 13.0391 16.2107 13.4142 16.5858C13.7893 16.9609 14 17.4696 14 18C14 18.5304 13.7893 19.0391 13.4142 19.4142C13.0391 19.7893 12.5304 20 12 20Z"
+                      fill="#B4B4B4"
+                    />
+                  </svg>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <span
+                    style="
+                      width: 3px;
+                      background-color: #9747ff;
+                      height: 100%;
+                      position: absolute;
+                      top: 0;
+                      left: 0;
+                    "
+                  ></span>
+                  <input type="checkbox" />
+                </td>
+                <td>
+                  839494 <br />
+                  <div class="indentDate commonPara">23 Sep’24</div>
+                </td>
+                <td>
+                  389304A1
+                  <div class="itemList commonPara">Prev. POs</div>
+                </td>
+                <td>24 Sep'24</td>
+                <td>Domestic</td>
+                <td>
+                  Cricket Bats
+                  <div class="itemList commonPara">+ 4 more items</div>
+                </td>
+                <td>Madras Rubber Factory</td>
+                <td>4893944</td>
+                <td>3940-3292</td>
+                <td>
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="24"
+                    height="24"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                  >
+                    <rect width="24" height="24" rx="12" fill="white" />
+                    <path
+                      fill-rule="evenodd"
+                      clip-rule="evenodd"
+                      d="M18.6953 7.2928C18.8828 7.48033 18.9881 7.73465 18.9881 7.99983C18.9881 8.265 18.8828 8.51932 18.6953 8.70686L10.695 16.7072C10.5074 16.8947 10.2531 17 9.98792 17C9.72275 17 9.46843 16.8947 9.28089 16.7072L5.28072 12.707C5.09856 12.5184 4.99776 12.2658 5.00004 12.0036C5.00232 11.7414 5.10749 11.4906 5.29291 11.3052C5.47832 11.1197 5.72914 11.0146 5.99135 11.0123C6.25356 11.01 6.50617 11.1108 6.69478 11.293L9.98792 14.5861L17.2812 7.2928C17.4688 7.10532 17.7231 7 17.9883 7C18.2534 7 18.5078 7.10532 18.6953 7.2928Z"
+                      fill="#69AC6C"
+                    />
+                  </svg>
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="24"
+                    height="24"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    style="margin-right: 20px"
+                  >
+                    <rect width="24" height="24" rx="12" fill="white" />
+                    <path
+                      fill-rule="evenodd"
+                      clip-rule="evenodd"
+                      d="M7.24374 7.25441C7.39986 7.09818 7.61157 7.01042 7.83232 7.01042C8.05307 7.01042 8.26478 7.09818 8.42089 7.25441L11.9948 10.8319L15.5687 7.25441C15.6455 7.17482 15.7374 7.11133 15.8389 7.06766C15.9405 7.02398 16.0497 7.00099 16.1603 7.00003C16.2708 6.99907 16.3804 7.02015 16.4827 7.06206C16.5851 7.10396 16.678 7.16583 16.7562 7.24408C16.8343 7.32232 16.8961 7.41536 16.938 7.51778C16.9799 7.62019 17.0009 7.72993 17 7.84057C16.999 7.95122 16.976 8.06057 16.9324 8.16224C16.8888 8.26391 16.8254 8.35587 16.7458 8.43274L13.1719 12.0102L16.7458 15.5877C16.8975 15.7449 16.9814 15.9554 16.9795 16.1739C16.9776 16.3924 16.8901 16.6014 16.7357 16.7559C16.5814 16.9104 16.3726 16.9981 16.1543 17C15.936 17.0019 15.7257 16.9179 15.5687 16.7661L11.9948 13.1886L8.42089 16.7661C8.26388 16.9179 8.05359 17.0019 7.83531 17C7.61704 16.9981 7.40824 16.9104 7.25388 16.7559C7.09953 16.6014 7.01198 16.3924 7.01008 16.1739C7.00819 15.9554 7.0921 15.7449 7.24374 15.5877L10.8176 12.0102L7.24374 8.43274C7.08767 8.27647 7 8.06454 7 7.84357C7 7.6226 7.08767 7.41068 7.24374 7.25441Z"
+                      fill="#E41D1D"
+                    />
+                  </svg>
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="24"
+                    height="24"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                  >
+                    <rect width="24" height="24" rx="12" fill="white" />
+                    <path
+                      d="M12 8C11.4696 8 10.9609 7.78929 10.5858 7.41421C10.2107 7.03914 10 6.53043 10 6C10 5.46957 10.2107 4.96086 10.5858 4.58579C10.9609 4.21071 11.4696 4 12 4C12.5304 4 13.0391 4.21071 13.4142 4.58579C13.7893 4.96086 14 5.46957 14 6C14 6.53043 13.7893 7.03914 13.4142 7.41421C13.0391 7.78929 12.5304 8 12 8ZM12 14C11.4696 14 10.9609 13.7893 10.5858 13.4142C10.2107 13.0391 10 12.5304 10 12C10 11.4696 10.2107 10.9609 10.5858 10.5858C10.9609 10.2107 11.4696 10 12 10C12.5304 10 13.0391 10.2107 13.4142 10.5858C13.7893 10.9609 14 11.4696 14 12C14 12.5304 13.7893 13.0391 13.4142 13.4142C13.0391 13.7893 12.5304 14 12 14ZM12 20C11.4696 20 10.9609 19.7893 10.5858 19.4142C10.2107 19.0391 10 18.5304 10 18C10 17.4696 10.2107 16.9609 10.5858 16.5858C10.9609 16.2107 11.4696 16 12 16C12.5304 16 13.0391 16.2107 13.4142 16.5858C13.7893 16.9609 14 17.4696 14 18C14 18.5304 13.7893 19.0391 13.4142 19.4142C13.0391 19.7893 12.5304 20 12 20Z"
+                      fill="#B4B4B4"
+                    />
+                  </svg>
+                </td>
+              </tr>
+            </tbody>
+            <!-- <tfoot>
+              <tr>
+                <th>
+                  <input type="checkbox" />
+                </th>
+                <th>Indent No.</th>
+                <th>PO No.</th>
+                <th>PO Date</th>
+                <th>Type</th>
+                <th>Item</th>
+                <th>Vendor</th>
+                <th>COM No.</th>
+                <th>MR No.</th>
+                <th>Actions</th>
+              </tr>
+            </tfoot> -->
+          </table>
+        </div>
+      </div>
+    </section>
+    <script type="text/javascript">
+      $(function () {
+        var start = moment().subtract(29, "days");
+        var end = moment();
+
+        function cb(start, end) {
+          $("#reportrange span").html(
+            start.format("MMMM D, YYYY") + " - " + end.format("MMMM D, YYYY")
+          );
+        }
+
+        $("#reportrange").daterangepicker(
+          {
+            startDate: start,
+            endDate: end,
+            ranges: {
+              "Last Week": [moment().subtract(6, "days"), moment()],
+              "Last Month": [
+                moment().subtract(1, "month").startOf("month"),
+                moment().subtract(1, "month").endOf("month"),
+              ],
+            },
+          },
+          cb
+        );
+
+        cb(start, end);
+      });
+    </script>
+    <script>
+      new DataTable("#example", {
+        layout: {
+          topStart: {
+            pageLength: {
+              menu: [10, 25, 50, 100],
+            },
+          },
+          topEnd: {
+            search: {
+              placeholder: "Type search here",
+            },
+          },
+          bottomEnd: {
+            paging: {
+              numbers: 3,
+            },
+          },
+        },
+      });
+    </script>
+    <script type="text/javascript" src="../nstatic/js/main.js"></script>
+    <script
+      type="text/javascript"
+      src="../nstatic/js/purchaseorder.js"
+    ></script>
+  </body>
+</html>

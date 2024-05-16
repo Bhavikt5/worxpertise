@@ -1,0 +1,124 @@
+.filter {
+  background-color: #f9f4ff;
+  padding: 1rem;
+  margin: 2rem 0;
+}
+
+.filterBox {
+  flex: 1;
+}
+
+.filterBox:nth-child(3) {
+  flex: 1.4;
+}
+
+.filterBox h5 {
+  color: var(--lightGray);
+  font-size: 1vw;
+}
+.dropdown {
+  min-width: 8em;
+  width: 100%;
+  position: relative;
+  top: 0;
+}
+.dropdown:nth-child(1) {
+  min-width: 10em;
+}
+.select {
+  background-color: #fff;
+  color: black;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 10px;
+  border: 1px #ba85ff solid;
+  border-radius: 3px;
+  padding: 2px;
+  cursor: pointer;
+  transition: 0.3s;
+  font-size: 1vw;
+}
+.select-clicked {
+  border: 1px var(--lightGray) solid;
+  box-shadow: 0 0 0.2em var(--lightGray);
+}
+
+.caret {
+  transition: 0.3s;
+}
+.caret-rotate {
+  transform: rotate(180deg);
+}
+.menu {
+  list-style: none;
+  box-shadow: 0 0.5em 1em rgba(0, 0, 0, 0.2);
+  border-radius: 0.5em;
+  color: black;
+  background-color: #fff;
+  position: absolute;
+  top: 2em;
+  left: 50%;
+  width: 100%;
+  transform: translateX(-50%);
+  opacity: 0;
+  display: none;
+  transition: 0.2s;
+  z-index: 1;
+  padding-left: 1rem !important;
+}
+.menu li {
+  padding: 0.4em 0;
+  margin: 0.3em 0;
+  border-radius: 0.5em;
+  cursor: pointer;
+  display: flex;
+  gap: 20px;
+}
+
+.menu-open {
+  display: block;
+  opacity: 1;
+}
+
+tbody tr td {
+  font-size: 1vw;
+}
+
+tbody tr td .commonPara {
+  color: #b4b4b4;
+  font-size: 0.8vw;
+}
+
+tbody tr td .itemList {
+  text-decoration: underline !important;
+  cursor: pointer;
+}
+
+table.dataTable > tbody > tr {
+  background-color: #ffffff !important;
+}
+
+/* table.dataTable > tbody > tr:hover {
+  background-color: red !important;
+} */
+td {
+  position: relative;
+}
+
+.filterBtnDiv {
+  display: flex;
+  align-items: end;
+}
+
+.filterBtn {
+  color: #801fff;
+  background-color: #efe3ff;
+  border: none;
+  padding: 5px 10px;
+  border-radius: 20px;
+}
+
+.dt-column-order::before {
+  margin-bottom: 2px;
+}
